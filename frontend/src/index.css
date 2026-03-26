@@ -1,14 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-rgf-green: #145A32; /* Rich Forest Green (30%) */
-  --color-rgf-orange: #E67E22;
+  --color-rgf-green: #1E6B34;
+  --color-rgf-orange: #E87B2C;
   --color-rgf-blue: #1A365D;
-  --color-rgf-cream: #FAF9F6; /* Premium Off-White (30%) */
+  --color-rgf-cream: #FFF8EE;
   --color-rgf-gold: #D4A017;
   --color-rgf-red: #C62828;
-  --color-rgf-saffron: #FF9933; /* Indian Saffron (40%) */
+  --color-rgf-saffron: #FF9933;
   --color-rgf-sandy: #F5E6C8;
   --color-brand-dark: #2D1B06;
 
