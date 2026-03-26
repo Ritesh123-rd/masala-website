@@ -45,56 +45,69 @@ const brands = [
 
 const Brands = () => {
   return (
-    <section className="py-20 bg-rgf-cream selection:bg-rgf-green selection:text-white overflow-hidden">
-      <div className="container mx-auto px-4 md:px-10">
+    <section className="py-16 md:py-20 bg-white selection:bg-rgf-green selection:text-white overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16">
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-16 md:mb-24"
         >
-          <div className="flex items-center justify-center space-x-4 mb-4">
-             <div className="h-px w-16 bg-rgf-saffron"></div>
-             <h2 className="text-3xl md:text-5xl font-black text-brand-dark uppercase tracking-tight">Our <span className="text-rgf-green italic">Brands</span></h2>
-             <div className="h-px w-16 bg-rgf-saffron"></div>
-          </div>
+          <span className="text-rgf-green font-bold text-xs uppercase tracking-[0.3em] mb-4 block">Projected Purity</span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-brand-dark mb-6 uppercase tracking-tight">Our <span className="text-rgf-saffron italic">Signature</span> Brands</h2>
+          <p className="text-brand-dark/50 text-sm md:text-xl font-medium max-w-2xl mx-auto leading-relaxed uppercase tracking-widest opacity-80">
+            From farm to kitchen, we bring you the finest range of traditional Indian essentials.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {brands.slice(0, 4).map((brand, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 md:gap-x-6 gap-y-12 md:gap-y-16">
+          {brands.map((brand, index) => (
             <motion.div
               key={brand.name}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-              className="bg-white rounded-3xl p-6 shadow-xl border border-rgf-sandy hover:shadow-2xl transition-all group"
+              transition={{ delay: index * 0.05, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="group"
             >
               <Link to={brand.path} className="flex flex-col items-center">
-                {/* Product Image */}
-                <div className="relative w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-rgf-cream/30 rounded-2xl">
+                {/* Product Showcase Stage */}
+                <div className="relative w-full aspect-[4/3] flex items-center justify-center mb-6 overflow-hidden">
+                  <motion.div 
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotate: 3,
+                      y: -10
+                    }}
+                    transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                    className="relative z-10 w-full h-full p-4 flex items-center justify-center"
+                  >
                     <img 
                       src={brand.image} 
                       alt={brand.name} 
-                      className="w-full h-full object-contain filter drop-shadow-xl group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.1)] group-hover:drop-shadow-[0_30px_60px_rgba(0,0,0,0.18)] transition-all duration-700 select-none pointer-events-none"
                     />
+                  </motion.div>
+                  
+                  {/* Soft Background Pulse */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 rounded-full scale-90 blur-3xl"></div>
                 </div>
 
-                {/* Info */}
-                <div className="text-center w-full">
-                  <h3 className="text-2xl font-black text-brand-dark mb-2 uppercase tracking-tighter truncate">
+                {/* Typography & Labeling */}
+                <div className="text-center group-hover:translate-y-[-5px] transition-transform duration-500">
+                  <h3 className="text-2xl md:text-3xl font-black text-slate-800 tracking-tighter transition-colors duration-500 group-hover:text-rgf-green uppercase">
                     {brand.name}
                   </h3>
                   
-                  <div className="text-2xl font-black text-rgf-saffron mb-6">
-                     ₹{index === 0 ? '120' : index === 1 ? '150' : index === 2 ? '110' : '180'}
+                  {/* Custom Indicator Line */}
+                  <div className="flex justify-center mt-3">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: 30 }}
+                      className="h-[2px] bg-slate-200 rounded-full group-hover:w-16 group-hover:bg-rgf-green transition-all duration-500"
+                    />
                   </div>
-
-                  <button className="w-full py-3 bg-rgf-orange text-white rounded-xl font-bold uppercase text-[10px] tracking-widest flex items-center justify-center space-x-2 shadow-lg shadow-rgf-orange/20 group-hover:bg-rgf-green transition-all">
-                     <ShoppingCart size={16} />
-                     <span>Add to Cart</span>
-                  </button>
                 </div>
               </Link>
             </motion.div>

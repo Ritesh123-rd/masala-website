@@ -1,39 +1,57 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Leaf, Factory, ShieldCheck, Truck } from 'lucide-react'
+import { Sprout, Briefcase, Box, ShieldCheck } from 'lucide-react'
 
 const Features = () => {
   const features = [
     {
-      icon: <Leaf size={40} />,
-      title: "100% Pure Ingredients",
+      icon: <Sprout size={32} />,
+      title: "Premium Raw Material",
+      description: "Directly sourced from the finest Indian farms.",
+      color: "bg-rgf-green",
     },
     {
-      icon: <Factory size={40} />,
-      title: "Modern Manufacturing Unit",
+      icon: <Briefcase size={32} />,
+      title: "Hygienic Processing",
+      description: "State-of-the-art facilities for maximum purity.",
+      color: "bg-rgf-saffron",
     },
     {
-      icon: <ShieldCheck size={40} />,
-      title: "Quality Tested Products",
+      icon: <Box size={32} />,
+      title: "Aroma Lock Packaging",
+      description: "Smart packaging to preserve natural essential oils.",
+      color: "bg-rgf-blue",
     },
     {
-      icon: <Truck size={40} />,
-      title: "Fast Delivery Across India.",
+      icon: <ShieldCheck size={32} />,
+      title: "100% Trusted Brand",
+      description: "Delivering excellence with global food standards.",
+      color: "bg-rgf-red",
     },
   ]
 
   return (
-    <section className="py-20 bg-white selection:bg-rgf-green selection:text-white relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-10">
-        <div className="text-center mb-16 md:mb-20">
-          <div className="flex items-center justify-center space-x-4 mb-4">
-             <div className="h-px w-16 bg-rgf-saffron"></div>
-             <h2 className="text-3xl md:text-5xl font-black text-brand-dark uppercase tracking-tight">Why Choose <span className="text-rgf-green italic">Rudransh</span> Global Foods?</h2>
-             <div className="h-px w-16 bg-rgf-saffron"></div>
-          </div>
+    <section className="py-20 md:py-28 bg-rgf-sandy/30 relative overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-rgf-gold/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-rgf-green/5 blur-3xl rounded-full -translate-x-1/2 translate-y-1/2"></div>
+
+      {/* Top Divider */}
+      <div className="absolute top-0 left-0 right-0 section-divider opacity-50"></div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+          <span className="text-rgf-green font-bold text-[10px] md:text-sm uppercase tracking-[0.3em] mb-4 block">Quality & Standards</span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-dark">
+            Why Choose <br className="sm:hidden" />
+            <span className="text-rgf-saffron italic">Rudransh</span> Global Foods?
+          </h2>
+          <p className="text-base md:text-xl text-brand-dark/50 font-medium">
+            We preserve the authentic "Indian Kisan" legacy through advanced technology and traditional care.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, i) => (
             <motion.div
               key={i}
@@ -41,20 +59,20 @@ const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="text-center group"
+              className="kisan-card p-8 md:p-10 text-center group hover:-translate-y-3 shadow-[0_15px_30px_-15px_rgba(0,0,0,0.05)] border-transparent hover:border-rgf-gold/20"
             >
-              <div className="w-24 h-24 md:w-32 md:h-32 bg-rgf-green/5 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-rgf-green group-hover:bg-rgf-green group-hover:text-white transition-all duration-500 shadow-xl shadow-rgf-green/10">
-                 <div className="text-rgf-green group-hover:text-white transition-colors duration-500">
-                    {feature.icon}
-                 </div>
+              <div className={`w-16 h-16 md:w-20 md:h-20 ${feature.color} text-white rounded-2xl flex items-center justify-center mx-auto mb-6 md:mb-8 shadow-[0_10px_20px_-5px_rgba(0,0,0,0.1)] group-hover:rotate-6 transition-all duration-500`}>
+                {React.cloneElement(feature.icon, { className: "w-8 h-8 md:w-10 md:h-10" })}
               </div>
-              <h3 className="text-sm md:text-xl font-black text-brand-dark uppercase tracking-tighter leading-tight max-w-[150px] mx-auto group-hover:text-rgf-green transition-colors">
-                 {feature.title}
-              </h3>
+              <h3 className="text-lg md:text-2xl font-bold text-brand-dark mb-3 md:mb-4 group-hover:text-rgf-green transition-colors uppercase tracking-tight">{feature.title}</h3>
+              <p className="text-sm md:text-base text-brand-dark/50 leading-relaxed font-medium">{feature.description}</p>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Bottom Divider */}
+      <div className="absolute bottom-0 left-0 right-0 section-divider opacity-50"></div>
     </section>
   )
 }
