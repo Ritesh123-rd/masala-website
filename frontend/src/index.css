@@ -13,6 +13,9 @@
   --color-brand-dark: #2D1B06;
 
   --font-outfit: 'Outfit', sans-serif;
+
+  --shadow-4xl: 0 35px 70px -15px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 50px -10px rgba(20, 90, 50, 0.2);
 }
 
 @layer base {
@@ -33,15 +36,6 @@
   .card-premium {
     @apply bg-white rounded-[2.5rem] border border-brand-dark/5 shadow-4xl hover:shadow-glow transition-all duration-700 hover:-translate-y-2;
   }
-}
-
-/* Custom Utilities */
-.shadow-4xl {
-  box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-glow {
-  box-shadow: 0 0 50px -10px rgba(20, 90, 50, 0.2);
 }
 
 /* Base Styles */
