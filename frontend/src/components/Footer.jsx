@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { 
-  Instagram, Facebook, Twitter, Linkedin, Mail, Phone, MapPin, Send, ArrowRight, ShieldCheck, Globe
+  Instagram, Facebook, Twitter, Linkedin, Mail, Phone, MapPin, ShieldCheck, Globe
 } from 'lucide-react'
 import logoImg from '../assets/images/icons/logo.jpeg'
 
@@ -118,7 +118,11 @@ const Footer = () => {
             </div>
             <div className="flex items-center space-x-6 group">
                <div className="w-14 h-14 bg-rgf-green/10 rounded-2xl flex items-center justify-center text-rgf-green group-hover:bg-rgf-green group-hover:text-white transition-all">
+<<<<<<< HEAD
                   <Phone size={28} />
+=======
+                  <Mail size={28} />
+>>>>>>> f091a5b48e23b94a4de958a4b6418ecd92262291
                </div>
                <div className="flex flex-col">
                   <span className="text-xs font-black uppercase tracking-widest text-white mb-1">B2B Ready</span>
