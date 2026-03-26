@@ -3,16 +3,16 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Features from '../components/Features'
 import Brands from '../components/Brands'
-import ProductGrid from '../components/ProductGrid'
+import Testimonials from '../components/Testimonials'
 
 const HomePage = () => {
   return (
     <>
       <Hero />
       <About />
-      <Features />
       <Brands />
-      <ProductGrid />
+      <Features />
+      <Testimonials />
     </>
   )
 }
