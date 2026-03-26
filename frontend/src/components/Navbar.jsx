@@ -72,30 +72,6 @@ const Navbar = () => {
                 `}></div>
               </Link>
             ))}
-<<<<<<< HEAD
-          </div>
-
-          {/* Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-             <Link to="/cart" className="relative group p-3 bg-zinc-50 rounded-2xl hover:bg-rgf-green transition-all shadow-sm">
-                <ShoppingCart size={22} className="text-brand-dark/50 group-hover:text-white transition-colors" />
-                <span className="absolute -top-1.5 -right-1.5 bg-rgf-red text-white text-[9px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-xl">0</span>
-             </Link>
-          </div>
-
-          {/* Mobile Buttons */}
-          <div className="lg:hidden flex items-center space-x-3">
-             <Link to="/cart" className="relative p-2.5 bg-zinc-50 rounded-xl">
-                <ShoppingCart size={22} className="text-brand-dark/60" />
-                <span className="absolute -top-1 -right-1 bg-rgf-red text-white text-[9px] font-bold w-4.5 h-4.5 flex items-center justify-center rounded-full border-2 border-white shadow-lg">0</span>
-             </Link>
-             <button 
-               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-               className="p-2.5 bg-brand-dark text-white rounded-xl shadow-xl active:scale-95 transition-transform"
-             >
-               {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-             </button>
-=======
           </div>
 
           {/* Actions */}
@@ -118,7 +94,6 @@ const Navbar = () => {
             >
               {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
->>>>>>> f091a5b48e23b94a4de958a4b6418ecd92262291
           </div>
         </div>
       </div>
