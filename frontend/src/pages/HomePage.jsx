@@ -3,17 +3,17 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Features from '../components/Features'
 import Brands from '../components/Brands'
-import Testimonials from '../components/Testimonials'
 
 const HomePage = () => {
   return (
-    <>
+    <div className="bg-white">
       <Hero />
-      <About />
-      <Brands />
-      <Features />
-      <Testimonials />
-    </>
+      <div className="relative z-10">
+        <About />
+        <Brands />
+        <Features />
+      </div>
+    </div>
   )
 }
 

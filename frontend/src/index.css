@@ -1,78 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-rgf-green: #145A32; /* Rich Forest Green (30%) */
+  --color-rgf-green: #145A32;
   --color-rgf-orange: #E67E22;
   --color-rgf-blue: #1A365D;
-  --color-rgf-cream: #FAF9F6; /* Premium Off-White (30%) */
+  --color-rgf-cream: #FAF9F6;
   --color-rgf-gold: #D4A017;
   --color-rgf-red: #C62828;
-  --color-rgf-saffron: #FF9933; /* Indian Saffron (40%) */
+  --color-rgf-saffron: #FF9933;
   --color-rgf-sandy: #F5E6C8;
   --color-brand-dark: #2D1B06;
 
   --font-outfit: 'Outfit', sans-serif;
-  --font-playfair: 'Playfair Display', serif;
 }
 
 @layer base {
   body {
-    @apply bg-rgf-cream text-brand-dark font-outfit antialiased;
-    background-image: 
-      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a017' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair font-bold;
-  }
-
-  ::selection {
-    @apply bg-rgf-saffron text-white;
+    @apply bg-rgf-cream text-brand-dark font-outfit antialiased selection:bg-rgf-green selection:text-white;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-3 bg-rgf-green text-white rounded-lg font-semibold transition-all duration-300 hover:bg-rgf-green/90 hover:scale-105 active:scale-95 shadow-lg shadow-rgf-green/20 uppercase tracking-wider text-sm;
+    @apply px-10 py-4 bg-rgf-green text-white rounded-2xl font-black uppercase tracking-[0.2em] transition-all duration-500 hover:bg-brand-dark hover:scale-105 active:scale-95 shadow-2xl shadow-rgf-green/20 text-[10px] md:text-xs flex items-center justify-center space-x-3;
   }
 
   .btn-secondary {
-    @apply px-8 py-3 bg-rgf-saffron text-white rounded-lg font-semibold transition-all duration-300 hover:bg-rgf-orange hover:scale-105 active:scale-95 shadow-lg shadow-rgf-orange/20 uppercase tracking-wider text-sm;
+    @apply px-10 py-4 bg-rgf-saffron text-white rounded-2xl font-black uppercase tracking-[0.2em] transition-all duration-500 hover:bg-rgf-orange hover:scale-105 active:scale-95 shadow-2xl shadow-rgf-saffron/20 text-[10px] md:text-xs flex items-center justify-center space-x-3;
   }
 
-  .btn-kisan {
-    @apply px-8 py-3 bg-rgf-red text-white rounded-lg font-bold transition-all duration-300 hover:bg-rgf-red/90 hover:scale-105 active:scale-95 shadow-lg shadow-rgf-red/20 uppercase tracking-wider text-sm border-2 border-rgf-gold;
-  }
-
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-rgf-sandy rounded-2xl shadow-xl;
-  }
-
-  .kisan-card {
-    @apply bg-white rounded-xl border-2 border-rgf-sandy shadow-lg hover:shadow-2xl hover:border-rgf-gold/50 transition-all duration-500;
-  }
-
-  .section-divider {
-    background: linear-gradient(90deg, transparent 0%, var(--color-rgf-gold) 20%, var(--color-rgf-saffron) 50%, var(--color-rgf-gold) 80%, transparent 100%);
-    height: 3px;
+  .card-premium {
+    @apply bg-white rounded-[2.5rem] border border-brand-dark/5 shadow-4xl hover:shadow-glow transition-all duration-700 hover:-translate-y-2;
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Utilities */
+.shadow-4xl {
+  box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 50px -10px rgba(20, 90, 50, 0.2);
+}
+
+/* Base Styles */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
-
 ::-webkit-scrollbar-track {
-  background: var(--color-rgf-cream);
+  background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--color-rgf-gold);
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-rgf-orange);
+  @apply bg-rgf-green/20 rounded-full;
 }

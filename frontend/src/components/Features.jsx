@@ -1,56 +1,57 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Leaf, Factory, ShieldCheck, Truck } from 'lucide-react'
+import { Target, ShieldCheck, Globe, Truck } from 'lucide-react'
 
 const Features = () => {
   const features = [
     {
-      icon: <Leaf size={40} />,
-      title: "100% Pure Ingredients",
+      icon: <Target className="w-8 h-8 md:w-10 md:h-10" />,
+      title: 'Precision Processing',
+      desc: 'Using low-temperature grinding to preserve essential oils and aroma.'
     },
     {
-      icon: <Factory size={40} />,
-      title: "Modern Manufacturing Unit",
+      icon: <ShieldCheck className="w-8 h-8 md:w-10 md:h-10" />,
+      title: 'Purity Assured',
+      desc: 'Rigorous multi-stage lab testing for zero adulteration and safe consumption.'
     },
     {
-      icon: <ShieldCheck size={40} />,
-      title: "Quality Tested Products",
+      icon: <Globe className="w-8 h-8 md:w-10 md:h-10" />,
+      title: 'Global Export',
+      desc: 'Meeting international food safety standards for logistics across the globe.'
     },
     {
-      icon: <Truck size={40} />,
-      title: "Fast Delivery Across India.",
-    },
+      icon: <Truck className="w-8 h-8 md:w-10 md:h-10" />,
+      title: 'Direct Supply',
+      desc: 'From our manufacturing unit straight to your retail or industrial kitchen.'
+    }
   ]
 
   return (
-    <section className="py-20 bg-white selection:bg-rgf-green selection:text-white relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-rgf-cream relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-10">
-        <div className="text-center mb-16 md:mb-20">
-          <div className="flex items-center justify-center space-x-4 mb-4">
-             <div className="h-px w-16 bg-rgf-saffron"></div>
-             <h2 className="text-3xl md:text-5xl font-black text-brand-dark uppercase tracking-tight">Why Choose <span className="text-rgf-green italic">Rudransh</span> Global Foods?</h2>
-             <div className="h-px w-16 bg-rgf-saffron"></div>
-          </div>
+        <div className="text-center mb-16 md:mb-24">
+          <span className="text-rgf-green font-black text-xs uppercase tracking-[0.3em] mb-4 block opacity-60">The RGF Advantage</span>
+          <h2 className="text-4xl md:text-7xl font-bold leading-[0.9] text-brand-dark uppercase tracking-tighter">
+            Why Choose Our <br/>
+            <span className="text-rgf-saffron italic underline decoration-rgf-saffron/10 underline-offset-8 tracking-[0.05em]">Trusted</span> Quality
+          </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {features.map((feature, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="text-center group"
+              className="bg-white p-10 lg:p-12 rounded-[3.5rem] shadow-4xl border border-rgf-sandy group hover:-translate-y-4 transition-all duration-700"
             >
-              <div className="w-24 h-24 md:w-32 md:h-32 bg-rgf-green/5 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-rgf-green group-hover:bg-rgf-green group-hover:text-white transition-all duration-500 shadow-xl shadow-rgf-green/10">
-                 <div className="text-rgf-green group-hover:text-white transition-colors duration-500">
-                    {feature.icon}
-                 </div>
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-dark/5 rounded-3xl flex items-center justify-center text-rgf-green mb-10 group-hover:bg-rgf-green group-hover:text-white transition-all duration-500 shadow-xl shadow-rgf-green/5">
+                {feature.icon}
               </div>
-              <h3 className="text-sm md:text-xl font-black text-brand-dark uppercase tracking-tighter leading-tight max-w-[150px] mx-auto group-hover:text-rgf-green transition-colors">
-                 {feature.title}
-              </h3>
+              <h3 className="text-xl md:text-2xl font-black text-brand-dark mb-6 uppercase tracking-tighter leading-tight">{feature.title}</h3>
+              <p className="text-[10px] md:text-xs font-bold text-brand-dark/30 uppercase tracking-[0.1em] leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 
 // Importing brand assets from src
 import kisanImg from '../assets/images/brands/kisan_masale.png'
@@ -45,56 +46,51 @@ const brands = [
 
 const Brands = () => {
   return (
-    <section className="py-20 bg-rgf-cream selection:bg-rgf-green selection:text-white overflow-hidden">
+    <section className="py-16 md:py-20 bg-white selection:bg-rgf-green selection:text-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-10">
-        {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16 md:mb-20"
-        >
-          <div className="flex items-center justify-center space-x-4 mb-4">
-             <div className="h-px w-16 bg-rgf-saffron"></div>
-             <h2 className="text-3xl md:text-5xl font-black text-brand-dark uppercase tracking-tight">Our <span className="text-rgf-green italic">Brands</span></h2>
-             <div className="h-px w-16 bg-rgf-saffron"></div>
-          </div>
-        </motion.div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
+           <div className="max-w-2xl text-center md:text-left">
+              <span className="text-rgf-saffron font-black text-xs uppercase tracking-[0.3em] mb-4 block underline decoration-rgf-saffron/20 underline-offset-8">Market Leaders</span>
+              <h2 className="text-4xl md:text-6xl font-bold leading-[0.9] text-brand-dark uppercase tracking-tighter">
+                 Our <span className="text-rgf-green italic underline decoration-rgf-green/5 underline-offset-4 tracking-[0.05em]">Legacy</span> Brands
+              </h2>
+           </div>
+           
+           {/* Section Controls - Placeholder for carousel if needed */}
+           <Link to="/products" className="hidden md:flex items-center space-x-3 text-brand-dark/30 hover:text-brand-dark transition-colors group">
+              <span className="text-[10px] font-black uppercase tracking-widest">View All Our Brands</span>
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+           </Link>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {brands.slice(0, 4).map((brand, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {brands.map((brand, index) => (
             <motion.div
               key={brand.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.8 }}
-              className="bg-white rounded-3xl p-6 shadow-xl border border-rgf-sandy hover:shadow-2xl transition-all group"
+              className="group relative"
             >
-              <Link to={brand.path} className="flex flex-col items-center">
-                {/* Product Image */}
-                <div className="relative w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-rgf-cream/30 rounded-2xl">
-                    <img 
-                      src={brand.image} 
-                      alt={brand.name} 
-                      className="w-full h-full object-contain filter drop-shadow-xl group-hover:scale-110 transition-transform duration-700"
-                    />
+              <Link to={brand.path} className="block overflow-hidden rounded-[3rem] bg-zinc-50 border border-brand-dark/5 p-10 lg:p-14 hover:shadow-4xl transition-all duration-700 hover:-translate-y-4">
+                <div className="relative z-10 w-full aspect-square flex items-center justify-center">
+                   <img 
+                     src={brand.image} 
+                     alt={brand.name} 
+                     className="max-h-full max-w-full object-contain filter drop-shadow-3xl group-hover:scale-110 transition-transform duration-[1.5s]"
+                   />
                 </div>
-
-                {/* Info */}
-                <div className="text-center w-full">
-                  <h3 className="text-2xl font-black text-brand-dark mb-2 uppercase tracking-tighter truncate">
-                    {brand.name}
-                  </h3>
-                  
-                  <div className="text-2xl font-black text-rgf-saffron mb-6">
-                     ₹{index === 0 ? '120' : index === 1 ? '150' : index === 2 ? '110' : '180'}
-                  </div>
-
-                  <button className="w-full py-3 bg-rgf-orange text-white rounded-xl font-bold uppercase text-[10px] tracking-widest flex items-center justify-center space-x-2 shadow-lg shadow-rgf-orange/20 group-hover:bg-rgf-green transition-all">
-                     <ShoppingCart size={16} />
-                     <span>Add to Cart</span>
-                  </button>
+                
+                {/* Brand Overlay */}
+                <div className="absolute inset-x-10 bottom-10 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                   <div className="flex flex-col">
+                      <span className="text-[10px] font-black text-brand-dark/30 uppercase tracking-widest">Brand Name</span>
+                      <span className="text-2xl font-black text-brand-dark leading-none">{brand.name}</span>
+                   </div>
+                   <div className="w-12 h-12 bg-brand-dark text-white rounded-2xl flex items-center justify-center shadow-2xl">
+                      <ArrowRight size={24} />
+                   </div>
                 </div>
               </Link>
             </motion.div>
